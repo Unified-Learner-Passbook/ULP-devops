@@ -14,5 +14,7 @@
       tags: [deploy-did-l3]
     - role: deploy-middleware
       tags: [deploy-middleware]
+    - role: deploy-telemetry
+      tags: [deploy-telemetry]
     - role: stack-proxy
       tags: [stack-proxy]
