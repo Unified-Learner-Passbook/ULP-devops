@@ -34,8 +34,8 @@
           <id>de4b53b7-d39f-4807-b859-c61bf25808d0</id>
           <apiUri>https://api.github.com</apiUri>
           <repoOwner>Unified-Learner-Passbook</repoOwner>
-          <repository>DID-L3-MS</repository>
-          <repositoryUrl>https://github.com/Unified-Learner-Passbook/DID-L3-MS</repositoryUrl>
+          <repository>Identity</repository>
+          <repositoryUrl>https://github.com/Unified-Learner-Passbook/Identity</repositoryUrl>
           <traits>
             <org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait>
               <strategyId>1</strategyId>

@@ -26,9 +26,8 @@
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 cd /home/ulp-devops/ansible_workspace_dir
-ansible-playbook -i inventory/hosts --extra-vars  &quot;tag=&apos;${tag}&apos;  deploy_host_name=dev&quot; main.yml --tag deploy-credential-ms
-cd /root/discord-notification
-docker run discord-notification-container</command>
+ansible-playbook -i inventory/hosts --extra-vars  &quot;tag=&apos;${tag}&apos; deploy_host_name=dev&quot; main.yml --tag deploy-telemetry
+</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
