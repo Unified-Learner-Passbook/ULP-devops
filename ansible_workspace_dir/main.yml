@@ -12,8 +12,8 @@
       tags: [deploy-cred-schema-ms]
     - role: deploy-did-l3
       tags: [deploy-did-l3]
-    - role: deploy-middleware
-      tags: [deploy-middleware]
+    - role: deploy-ulp-bff
+      tags: [deploy-ulp-bff]
     - role: deploy-telemetry
       tags: [deploy-telemetry]
     - role: stack-proxy
