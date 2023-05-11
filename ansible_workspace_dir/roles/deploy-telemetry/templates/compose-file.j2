@@ -1,0 +1,28 @@
+version: '3.1'
+services:
+  {{ docker_service_name }}_clickhouse:
+    image: clickhouse/clickhouse-server
+
+    logging:
+      driver: 'gelf'
+      options:
+        gelf-address: "tcp://64.227.185.154:12201"
+
+
+    environment:
+      CLICKHOUSE_USER : {{ credentials.CLICKHOUSE_USERNAME }}
+      CLICKHOUSE_PASSWORD : "{{ credentials.CLICKHOUSE_PASSWORD }}" 
+    ports:
+      - '8123:8123'
+      - '9000:9000'
+  telemetry-service:
+    image: {{ docker_hub_url }}/{{ image_name }}:{{ tag }}
+    ports:
+      - 9001:9001
+    environment:
+      telemetry_local_storage_type: "clickhouse"
+      CLICKHOUSE_HOST : "http://ulp_telemetry_service_clickhouse:8123"
+      CLICKHOUSE_USER : "{{ credentials.CLICKHOUSE_USERNAME }}"
+      CLICKHOUSE_PASSWORD : "{{ credentials.CLICKHOUSE_PASSWORD }}" 
+    depends_on:
+      - {{ docker_service_name }}_clickhouse

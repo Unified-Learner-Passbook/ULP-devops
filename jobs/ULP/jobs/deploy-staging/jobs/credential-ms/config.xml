@@ -1,0 +1,80 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>tag</name>
+          <description>The latest tag or branch of the image.</description>
+          <defaultValue>latest</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <com.cloudbees.plugins.credentials.CredentialsParameterDefinition plugin="credentials@1214.v1de940103927">
+          <name>VAULT_TOKEN</name>
+          <defaultValue>VAULT_TOKEN_ULP</defaultValue>
+          <credentialType>com.datapipe.jenkins.vault.credentials.VaultTokenCredential</credentialType>
+          <required>true</required>
+        </com.cloudbees.plugins.credentials.CredentialsParameterDefinition>
+        <com.cloudbees.plugins.credentials.CredentialsParameterDefinition plugin="credentials@1214.v1de940103927">
+          <name>VAULT_ADDR</name>
+          <defaultValue>VAULT_ADDR_ULP</defaultValue>
+          <credentialType>com.datapipe.jenkins.vault.credentials.VaultTokenCredential</credentialType>
+          <required>true</required>
+        </com.cloudbees.plugins.credentials.CredentialsParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+cd /home/ulp-devops/ansible_workspace_dir
+echo &quot;this is token ${VAULT_TOKEN}&quot;
+ansible-playbook -i inventory/hosts --extra-vars  &quot;tag=&apos;${tag}&apos;  deploy_host_name=dev[0]&quot; main.yml --tag deploy-credential-ms</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <nz.co.jammehcow.jenkinsdiscord.WebhookPublisher plugin="discord-notifier@218.ve2b_887e3a_f28">
+      <webhookURL>https://discord.com/api/webhooks/1080451186601250826/OA0WNfa2YLmbcJ1j3Z8el5SyjrORf1n8_K-97v9cIoZ_U_1MAXCxIueTHptRqgOjm_Ux</webhookURL>
+      <branchName></branchName>
+      <statusTitle></statusTitle>
+      <thumbnailURL></thumbnailURL>
+      <notes></notes>
+      <customAvatarUrl></customAvatarUrl>
+      <customUsername></customUsername>
+      <sendOnStateChange>false</sendOnStateChange>
+      <sendOnlyFailed>false</sendOnlyFailed>
+      <enableUrlLinking>false</enableUrlLinking>
+      <enableArtifactList>true</enableArtifactList>
+      <enableFooterInfo>true</enableFooterInfo>
+      <showChangeset>true</showChangeset>
+      <sendLogFile>false</sendLogFile>
+      <sendStartNotification>false</sendStartNotification>
+    </nz.co.jammehcow.jenkinsdiscord.WebhookPublisher>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.44">
+      <patterns class="empty-list"/>
+      <deleteDirs>false</deleteDirs>
+      <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>true</cleanWhenUnstable>
+      <cleanWhenFailure>true</cleanWhenFailure>
+      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
+      <cleanWhenAborted>true</cleanWhenAborted>
+      <notFailBuild>false</notFailBuild>
+      <cleanupMatrixParent>false</cleanupMatrixParent>
+      <externalDelete></externalDelete>
+      <disableDeferredWipeout>false</disableDeferredWipeout>
+    </hudson.plugins.ws__cleanup.WsCleanup>
+  </publishers>
+  <buildWrappers/>
+</project>

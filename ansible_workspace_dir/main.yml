@@ -1,0 +1,20 @@
+---
+# - hosts: "app_north_virginia_lex_dev"
+- hosts: "{{ deploy_host_name }}"
+  become: yes
+  strategy: free
+  vars_files:
+    - "vars/main.yml"
+  roles:
+    - role: deploy-credential-ms
+      tags: [deploy-credential-ms]
+    - role: deploy-cred-schema-ms
+      tags: [deploy-cred-schema-ms]
+    - role: deploy-ulp-bff
+      tags: [deploy-ulp-bff]
+    - role: deploy-telemetry
+      tags: [deploy-telemetry]
+    - role: stack-proxy
+      tags: [stack-proxy]
+    - role: deploy-did-l3
+      tags: [deploy-did-l3]

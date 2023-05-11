@@ -1,0 +1,55 @@
+---
+# Update variables for each service here
+
+
+service_did_l3_service: did_l3_service
+service_did_l3_host_port: 3000
+service_did_l3_docker_port: 3332
+network_alias_did_l3_service: did_l3_service
+image_did_l3_service: samagragovernance/did-l3
+did_l3_logs: /mydata/logs/did_l3
+force_reload_did_l3_service: true
+did_l3_secret_path: kv/data/ulp/did-l3
+service_replicas_did_l3_service: 1
+
+
+service_cred_schema_ms_service: cred_schema_ms_service
+service_cred_schema_ms_host_port: 3001
+service_cred_schema_ms_docker_port: 3000
+network_alias_cred_schema_ms_service: cred_schema_ms_service
+image_cred_schema_ms_service: samagragovernance/cred-schema-ms
+cred_schema_ms_logs: /mydata/logs/cred_schema_ms
+force_reload_cred_schema_ms_service: true
+cred_schema_ms_secret_path: kv/data/ulp/cred-schema-ms
+service_replicas_cred_schema_ms_service: 1
+
+service_credential_ms_service: credential_ms_service
+service_credential_ms_host_port: 3002
+service_credential_ms_docker_port: 3333
+network_alias_credential_ms_service: credential_ms_service
+image_credential_ms_service: samagragovernance/credential-ms
+credential_ms_logs: /mydata/logs/credential_ms
+force_reload_credential_ms_service: true
+credential_ms_secret_path: kv/data/ulp/credential-ms
+service_replicas_credential_ms_service: 1
+
+service_ulp_bff_service: ulp_bff_service
+service_ulp_bff_host_port: 3003
+service_ulp_bff_docker_port: 3000
+network_alias_ulp_bff_service: ulp_bff_service
+image_ulp_bff_service: samagragovernance/ulp-bff
+ulp_bff_logs: /mydata/logs/ulp_bff
+force_reload_ulp_bff_service: true
+ulp_bff_secret_path: kv/data/ulp/ulp_bff
+service_replicas_ulp_bff_service: 1
+
+
+service_telemetry_service: telemetry_service
+service_telemetry_host_port: 9001
+service_telemetry_docker_port: 9001
+network_alias_telemetry_service: telemetry_service
+image_telemetry_service: samagragovernance/telemetry
+telemetry_logs: /mydata/logs/telemetry
+force_reload_telemetry_service: true
+telemetry_secret_path: kv/data/ulp/telemetry
+service_replicas_telemetry_service: 1

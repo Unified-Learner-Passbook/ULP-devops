@@ -1,0 +1,11 @@
+---
+  - name: Removing the existing service {{  docker_service_stack_name  }}_{{ docker_service_name }}_telemetry
+    shell: docker service rm {{  docker_service_stack_name  }}_{{ docker_service_name }}_telemetry
+    when: "force_reload==true"
+    ignore_errors: true
+
+
+  - name: Removing the existing service {{  docker_service_stack_name  }}_{{ docker_service_name }}_clickhouse
+    shell: docker service rm {{  docker_service_stack_name  }}_{{ docker_service_name }}_clickhouse
+    when: "force_reload==true"
+    ignore_errors: true
