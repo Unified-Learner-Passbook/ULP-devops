@@ -8,7 +8,8 @@ services:
       options:
         gelf-address: "tcp://64.227.185.154:12201"
 
-
+    volumes:
+      - /root/ulp-registry/telemetry/config/data:/var/lib/clickhouse
     environment:
       CLICKHOUSE_USER : {{ credentials.CLICKHOUSE_USERNAME }}
       CLICKHOUSE_PASSWORD : "{{ credentials.CLICKHOUSE_PASSWORD }}" 
