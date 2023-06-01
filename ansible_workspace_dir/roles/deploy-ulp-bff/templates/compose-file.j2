@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   {{ docker_service_name }}:
-    image: {{ docker_hub_url }}/{{ image_name }}:{{ tag }}
+    image: '${docker_server}'/{{ image_name }}:{{ tag }}
     hostname: "{{ docker_service_name }}"
     
     {% if publish_ports == true %}
