@@ -3,10 +3,10 @@ services:
   {{ docker_service_name }}_clickhouse:
     image: clickhouse/clickhouse-server
 
-    logging:
-      driver: 'gelf'
-      options:
-        gelf-address: "tcp://64.227.185.154:12201"
+  #  logging:
+   #   driver: 'gelf'
+    #  options:
+     #   gelf-address: "tcp://64.227.185.154:12201"
 
     volumes:
       - /root/ulp-registry/telemetry/config/data:/var/lib/clickhouse
