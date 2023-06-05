@@ -7,10 +7,10 @@ services:
     
     {% if publish_ports == true %}
 
-    logging:
-      driver: 'gelf'
-      options:
-        gelf-address: "tcp://64.227.185.154:12201"
+  #  logging:
+   #   driver: 'gelf'
+    #  options:
+     #   gelf-address: "tcp://64.227.185.154:12201"
 
     ports:
       - {{ host_port }}:{{ docker_port }}
