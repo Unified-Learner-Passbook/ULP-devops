@@ -18,3 +18,5 @@
       tags: [stack-proxy]
     - role: deploy-did-l3
       tags: [deploy-did-l3]
+    - role: deploy-bulk-issurance
+      tags: [deploy-bulk-issurance]

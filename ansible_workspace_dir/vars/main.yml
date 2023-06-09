@@ -53,3 +53,13 @@ telemetry_logs: /mydata/logs/telemetry
 force_reload_telemetry_service: true
 telemetry_secret_path: kv/data/ulp/telemetry
 service_replicas_telemetry_service: 1
+
+service_telemetry_service: bulk_issurance_service
+service_telemetry_host_port: 3007
+service_telemetry_docker_port: 3007
+network_alias_telemetry_service: bulk_issurance_service
+image_telemetry_service: samagragovernance/bulk_issurance
+telemetry_logs: /mydata/logs/bulk_issurance
+force_reload_telemetry_service: true
+telemetry_secret_path: kv/data/ulp/bulk_insurance
+service_replicas_bulk_issurance_service: 1
