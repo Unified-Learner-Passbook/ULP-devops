@@ -12,13 +12,13 @@
           <defaultValue>latest</defaultValue>
           <trim>false</trim>
         </hudson.model.StringParameterDefinition>
-        <com.cloudbees.plugins.credentials.CredentialsParameterDefinition plugin="credentials@1214.v1de940103927">
+        <com.cloudbees.plugins.credentials.CredentialsParameterDefinition plugin="credentials@1224.vc23ca_a_9a_2cb_0">
           <name>VAULT_TOKEN</name>
           <defaultValue>VAULT_TOKEN_ULP</defaultValue>
           <credentialType>com.datapipe.jenkins.vault.credentials.VaultTokenCredential</credentialType>
           <required>false</required>
         </com.cloudbees.plugins.credentials.CredentialsParameterDefinition>
-        <com.cloudbees.plugins.credentials.CredentialsParameterDefinition plugin="credentials@1214.v1de940103927">
+        <com.cloudbees.plugins.credentials.CredentialsParameterDefinition plugin="credentials@1224.vc23ca_a_9a_2cb_0">
           <name>VAULT_ADDR</name>
           <defaultValue>VAULT_ADDR_ULP</defaultValue>
           <credentialType>com.datapipe.jenkins.vault.credentials.VaultTokenCredential</credentialType>
@@ -38,7 +38,8 @@
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 cd /home/ulp-devops/ansible_workspace_dir
-ansible-playbook -i inventory/hosts --extra-vars  &quot;tag=&apos;${tag}&apos;  deploy_host_name=dev[0]&quot; main.yml --tag deploy-did-l3</command>
+#ansible-playbook -i inventory/hosts --extra-vars  &quot;tag=&apos;${tag}&apos;  deploy_host_name=dev[0]&quot; main.yml --tag deploy-did-l3
+ansible-playbook -i inventory/hosts --extra-vars  &quot;tag=&apos;${tag}&apos; deploy_host_name=dev[0] VAULT_TOKEN=&apos;${VAULT_TOKEN_DEV}&apos; VAULT_ADDR=&apos;${VAULT_ADDR_DEV}&apos;&quot; main.yml --tag deploy-did-l3</command>
       <configuredLocalRules/>
     </hudson.tasks.Shell>
   </builders>
@@ -60,7 +61,7 @@ ansible-playbook -i inventory/hosts --extra-vars  &quot;tag=&apos;${tag}&apos;  
       <sendLogFile>false</sendLogFile>
       <sendStartNotification>false</sendStartNotification>
     </nz.co.jammehcow.jenkinsdiscord.WebhookPublisher>
-    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.44">
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.45">
       <patterns class="empty-list"/>
       <deleteDirs>false</deleteDirs>
       <skipWhenFailed>false</skipWhenFailed>

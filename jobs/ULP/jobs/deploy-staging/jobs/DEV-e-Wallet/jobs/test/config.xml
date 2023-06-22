@@ -1,0 +1,40 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.plugins.copyartifact.CopyArtifact plugin="copyartifact@686.v6fd37018d7c2">
+      <project>ULP/build/DEV-Wallet</project>
+      <filter>build.tar</filter>
+      <target></target>
+      <includeBuildNumberInTargetPath>false</includeBuildNumberInTargetPath>
+      <excludes></excludes>
+      <selector class="hudson.plugins.copyartifact.StatusBuildSelector"/>
+      <doNotFingerprintArtifacts>false</doNotFingerprintArtifacts>
+    </hudson.plugins.copyartifact.CopyArtifact>
+    <hudson.tasks.Shell>
+      <command>tar -xvf build.tar
+cd sunbird-rc-ui/
+</command>
+      <configuredLocalRules/>
+    </hudson.tasks.Shell>
+    <hudson.plugins.s3.S3CopyArtifact plugin="s3@0.12.3444.vf1f416e058d3">
+      <projectName></projectName>
+      <filter></filter>
+      <excludeFilter></excludeFilter>
+      <target></target>
+      <selector class="hudson.plugins.copyartifact.StatusBuildSelector" plugin="copyartifact@686.v6fd37018d7c2"/>
+      <flatten>true</flatten>
+    </hudson.plugins.s3.S3CopyArtifact>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
