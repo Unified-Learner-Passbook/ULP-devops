@@ -35,7 +35,7 @@ service_replicas_credential_ms_service: 1
 
 service_ulp_bff_service: ulp_bff_service
 service_ulp_bff_host_port: 3003
-service_ulp_bff_docker_port: 3000
+service_ulp_bff_docker_port: 3003
 network_alias_ulp_bff_service: ulp_bff_service
 image_ulp_bff_service: samagragovernance/ulp-bff
 ulp_bff_logs: /mydata/logs/ulp_bff
