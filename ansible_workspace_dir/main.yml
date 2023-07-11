@@ -20,3 +20,11 @@
       tags: [deploy-did-l3]
     - role: deploy-bulk-issurance
       tags: [deploy-bulk-issurance]
+    - role: deploy-avsar
+      tags: [deploy-avsar]
+    - role: deploy-verify
+      tags: [deploy-verify]
+    - role: deploy-issuer
+      tags: [deploy-issuer]
+    - role: deploy-registration-portal
+      tags: [deploy-registration-portal]

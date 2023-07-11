@@ -1,0 +1,25 @@
+---
+# vars file for deploy-sb-ext
+# For script
+template_compose_file_name: compose-file.j2
+template_env_file_name: env.j2
+compose_file_name: "{{ service_registration_portal }}.yml"
+env_file_name: "{{ service_registration_portal }}.env"
+compose_file_deployment_location: "{{ compose_files_dir }}/{{ compose_file_name }}"
+env_file_deployment_location: "{{ env_files_dir }}/{{ env_file_name }}"
+user_friendly_name: registration_portal
+
+docker_port: "{{ service_registration_portal_docker_port }}"
+host_port: "{{ service_registration_portal_host_port }}"
+image_name: "{{ image_registration_portal }}"
+tag: "{{ tags_registration_portal }}"
+replicas: "{{ service_replicas_registration_portal }}"
+network_alias_name: "{{ network_alias_registration_portal }}"
+docker_service_stack_name: frontend
+docker_service_name: "{{ service_registration_portal }}"
+force_reload: "{{ force_reload_registration_portal }}"
+host_logs_location: "{{ registration_portal_logs }}"
+docker_logs_location: /logs
+
+# Your credentials on the vault
+credentials: "{{ lookup('hashi_vault', 'secret={{ ulp_bff_secret_path }}', url=VAULT_ADDR, token=VAULT_TOKEN) }}"

@@ -1,0 +1,25 @@
+---
+# vars file for deploy-sb-ext
+# For script
+template_compose_file_name: compose-file.j2
+template_env_file_name: env.j2
+compose_file_name: "{{ service_avsar }}.yml"
+env_file_name: "{{ service_avsar }}.env"
+compose_file_deployment_location: "{{ compose_files_dir }}/{{ compose_file_name }}"
+env_file_deployment_location: "{{ env_files_dir }}/{{ env_file_name }}"
+user_friendly_name: avsar
+
+docker_port: "{{ service_avsar_docker_port }}"
+host_port: "{{ service_avsar_host_port }}"
+image_name: "{{ image_avsar }}"
+tag: "{{ tags_avsar }}"
+replicas: "{{ service_replicas_avsar }}"
+network_alias_name: "{{ network_alias_avsar }}"
+docker_service_stack_name: frontend
+docker_service_name: "{{ service_avsar }}"
+force_reload: "{{ force_reload_avsar }}"
+host_logs_location: "{{ avsar_logs }}"
+docker_logs_location: /logs
+
+# Your credentials on the vault
+credentials: "{{ lookup('hashi_vault', 'secret={{ ulp_bff_secret_path }}', url=VAULT_ADDR, token=VAULT_TOKEN) }}"

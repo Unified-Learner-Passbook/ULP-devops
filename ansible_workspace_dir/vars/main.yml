@@ -63,3 +63,43 @@ bulk_issurance_logs: /mydata/logs/bulk_issurance
 force_reload_bulk_issurance_service: true
 bulk_issurance_secret_path: kv/data/ulp/bulk_insurance
 service_replicas_bulk_issurance_service: 1
+
+service_avsar: avsar
+service_avsar_host_port: 9991
+service_avsar_docker_port: 80
+network_alias_avsar: avsar
+image_avsar: samagragovernance/avsar
+avsar_logs: /mydata/logs/avsar
+force_reload_avsar: true
+avsar_secret_path: kv/data/ulp/avsar
+service_replicas_avsar: 1
+
+service_verify: verify
+service_verify_host_port: 9992
+service_verify_docker_port: 80
+network_alias_verify: verify
+image_verify: samagragovernance/verify
+verify_logs: /mydata/logs/verify
+force_reload_verify: true
+verify_secret_path: kv/data/ulp/bulk_insurance
+service_replicas_verify: 1
+
+service_issuer: issuer
+service_issuer_host_port: 9993
+service_issuer_docker_port: 80
+network_alias_issuer: issuer
+image_issuer: samagragovernance/issuer
+issuer_logs: /mydata/logs/bulk_issurance
+force_reload_issuer: true
+issuer_secret_path: kv/data/ulp/issuer
+service_replicas_issuer: 1
+
+service_registration_portal: registration_portal
+service_registration_portal_host_port: 9994
+service_registration_portal_docker_port: 80
+network_alias_registration_portal: registration_portal
+image_registration_portal: samagragovernance/registration_portal
+registration_portal_logs: /mydata/logs/registration_portal
+force_reload_registration_portal: true
+registration_portal_secret_path: kv/data/ulp/registration_portal
+service_replicas_registration_portal: 1
