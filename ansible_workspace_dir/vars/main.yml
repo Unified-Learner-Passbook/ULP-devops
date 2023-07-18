@@ -78,7 +78,7 @@ service_verify: verify
 service_verify_host_port: 9992
 service_verify_docker_port: 80
 network_alias_verify: verify
-image_verify: samagragovernance/verify
+image_verify: samagragovernance/verification
 verify_logs: /mydata/logs/verify
 force_reload_verify: true
 verify_secret_path: kv/data/ulp/bulk_insurance
