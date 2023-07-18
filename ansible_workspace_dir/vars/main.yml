@@ -88,7 +88,7 @@ service_issuer: issuer
 service_issuer_host_port: 9993
 service_issuer_docker_port: 80
 network_alias_issuer: issuer
-image_issuer: samagragovernance/issuer
+image_issuer: samagragovernance/issuance
 issuer_logs: /mydata/logs/bulk_issurance
 force_reload_issuer: true
 issuer_secret_path: kv/data/ulp/issuer
