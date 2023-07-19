@@ -81,15 +81,15 @@ network_alias_verify: verify
 image_verify: samagragovernance/verification
 verify_logs: /mydata/logs/verify
 force_reload_verify: true
-verify_secret_path: kv/data/ulp/bulk_insurance
+verify_secret_path: kv/data/ulp/verify
 service_replicas_verify: 1
 
 service_issuer: issuer
 service_issuer_host_port: 9993
 service_issuer_docker_port: 80
 network_alias_issuer: issuer
-image_issuer: samagragovernance/issuance
-issuer_logs: /mydata/logs/bulk_issurance
+image_issuer: samagragovernance/issuer
+issuer_logs: /mydata/logs/issuer
 force_reload_issuer: true
 issuer_secret_path: kv/data/ulp/issuer
 service_replicas_issuer: 1
