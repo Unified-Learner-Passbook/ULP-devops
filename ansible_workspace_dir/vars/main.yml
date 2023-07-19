@@ -58,7 +58,7 @@ service_bulk_issurance_service: bulk_issuance
 service_bulk_issurance_host_port: 3007
 service_bulk_issurance_docker_port: 3007
 network_alias_bulk_issurance_service: bulk_issuance
-image_bulk_issurance_service: samagragovernance/bulk-issuance
+image_bulk_issurance_service: samagragovernance/issuance
 bulk_issurance_logs: /mydata/logs/bulk_issuance
 force_reload_bulk_issurance_service: true
 bulk_issurance_secret_path: kv/data/ulp/bulk_insurance
