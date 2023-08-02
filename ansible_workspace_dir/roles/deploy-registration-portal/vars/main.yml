@@ -22,4 +22,4 @@ host_logs_location: "{{ registration_portal_logs }}"
 docker_logs_location: /logs
 
 # Your credentials on the vault
-credentials: "{{ lookup('hashi_vault', 'secret={{ ulp_bff_secret_path }}', url=VAULT_ADDR, token=VAULT_TOKEN) }}"
+credentials: "{{ lookup('hashi_vault', 'secret={{ registration_portal_secret_path }}', url=VAULT_ADDR, token=VAULT_TOKEN) }}"
